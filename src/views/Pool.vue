@@ -55,10 +55,10 @@ const { question, options, results, vote, reset } = usePoll(data)
   display: block;
   margin: var(--spacing-lg) auto 0;
   padding: 0.75rem var(--spacing-lg);
-  background: transparent;
-  border: 2px solid var(--color-accent);
-  color: var(--color-accent);
+  background: var(--color-text);
+  color: var(--color-background);
   border-radius: var(--border-radius);
+  border: none;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -66,7 +66,6 @@ const { question, options, results, vote, reset } = usePoll(data)
 }
 
 .reset-button:hover {
-  background: rgba(0, 210, 60, 0.1);
   transform: translateY(-2px);
 }
 
