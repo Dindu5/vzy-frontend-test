@@ -6,17 +6,18 @@
   --color-accent: #00d23c;
   --color-text: #ffffff;
   --color-text-secondary: #888888;
-  
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;
-  
+
   /* Border */
   --border-radius: 8px;
+  --border-radius-sm: 4px;
   --border-color: #333333;
-  
+
   /* Transitions */
   --transition-quick: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-medium: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
