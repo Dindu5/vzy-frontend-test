@@ -98,7 +98,7 @@ const handleVote = () => {
 
 .option:hover:not(.voted) {
   background: var(--color-surface-hover);
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
   border-color: var(--border-color);
 }
 

@@ -33,9 +33,9 @@ A dynamic and interactive polling component built with Vue.js. This project was 
 
 ### Components Structure
 
-- `Pool.vue`: Main container component
-- `PoolQuestion.vue`: Displays the poll question
-- `PoolOption.vue`: Individual option component with animations
+- `Poll.vue`: Main container component
+- `PollQuestion.vue`: Displays the poll question
+- `PollOption.vue`: Individual option component with animations
 - `usePoll.ts`: Composable for poll logic and state management
 
 ### Animations
@@ -103,10 +103,10 @@ This project was built to meet the following requirements:
 ```
 src/
 ├── components/
-│   ├── PoolOption.vue
-│   └── PoolQuestion.vue
+│   ├── PollOption.vue
+│   └── PollQuestion.vue
 ├── views/
-│   └── Pool.vue
+│   └── Poll.vue
 ├── composables/
 │   └── usePoll.ts
 ├── types/

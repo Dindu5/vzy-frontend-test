@@ -1,16 +1,15 @@
 <template>
   <div class="poll-container">
-    <PoolQuestion :question="question" />
+    <PollQuestion :question="question" />
 
     <div class="options-container">
-      <PoolOption
+      <PollOption
         v-for="(option, index) in options"
-        :key="index"
+        :key="option.text"
         :option="option"
         :has-voted="results.hasVoted"
-        :index="index"
-        :selected-option-index="results.selectedOptionIndex"
-        @vote="vote"
+        :is-selected="results.selectedOptionIndex === index"
+        @vote="() => vote(index)"
       />
     </div>
 
@@ -21,8 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import PoolOption from '../components/PoolOption.vue'
-import PoolQuestion from '../components/PoolQuestion.vue'
+import PollOption from '../components/PollOption.vue'
+import PollQuestion from '../components/PollQuestion.vue'
 import { data } from '../mock-data'
 import { usePoll } from '../composables/usePoll'
 
