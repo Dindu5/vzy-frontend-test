@@ -56,7 +56,7 @@ A dynamic and interactive polling component built with Vue.js. This project was 
 1. Clone the repository:
 
 ```bash
-git clone [repository-url]
+git clone https://github.com/Dindu5/vzy-frontend-test
 ```
 
 2. Install dependencies:
@@ -79,7 +79,7 @@ npm run build
 
 ## 🌐 Live Demo
 
-Visit the live demo at: [Add your deployed URL here]
+Visit the live demo at: [Vercel Preview](https://vzy-frontend-test.vercel.app/)
 
 ## 🧰 Technologies Used
 
@@ -117,7 +117,3 @@ src/
 ## 🤝 Contributing
 
 While this is an interview project, suggestions and feedback are welcome. Feel free to open an issue or submit a pull request cheers.
-
-## 📄 License
-
-[Add your chosen license]
