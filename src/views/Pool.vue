@@ -1,0 +1,76 @@
+<template>
+  <div class="poll-container">
+    <PoolQuestion :question="question" />
+
+    <div class="options-container">
+      <PoolOption
+        v-for="(option, index) in options"
+        :key="index"
+        :option="option"
+        :has-voted="results.hasVoted"
+        :index="index"
+        :selected-option-index="results.selectedOptionIndex"
+        @vote="vote"
+      />
+    </div>
+
+    <p v-if="results.hasVoted" class="total-votes">Total votes: {{ results.totalVotes }}</p>
+  </div>
+
+  <button v-if="results.hasVoted" class="reset-button" @click="reset">Reset Poll</button>
+</template>
+
+<script setup lang="ts">
+import PoolOption from '../components/PoolOption.vue'
+import PoolQuestion from '../components/PoolQuestion.vue'
+import { data } from '../mock-data'
+import { usePoll } from '../composables/usePoll'
+
+const { question, options, results, vote, reset } = usePoll(data)
+</script>
+
+<style scoped>
+.poll-container {
+  max-width: 600px;
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-lg);
+  background: var(--color-surface);
+  border-radius: var(--border-radius);
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.total-votes {
+  margin-top: var(--spacing-md);
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.reset-button {
+  display: block;
+  margin: var(--spacing-lg) auto 0;
+  padding: 0.75rem var(--spacing-lg);
+  background: transparent;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-quick);
+}
+
+.reset-button:hover {
+  background: rgba(0, 210, 60, 0.1);
+  transform: translateY(-2px);
+}
+
+.reset-button:active {
+  transform: translateY(0);
+}
+</style>

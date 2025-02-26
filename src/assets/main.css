@@ -1,0 +1,19 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
