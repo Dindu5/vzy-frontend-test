@@ -16,6 +16,7 @@
           </span>
         </transition>
       </div>
+
       <div v-if="hasVoted" class="result-bar-container">
         <div
           class="result-bar"
@@ -28,21 +29,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed } from 'vue'
+import { ref, watch } from 'vue'
 import type { PollOption } from '../types/poll'
 
-const props = defineProps<{
+interface Props {
   option: PollOption
   hasVoted: boolean
-  index: number
-  selectedOptionIndex: number | null
-}>()
+  isSelected: boolean
+}
 
+const props = defineProps<Props>()
 const emit = defineEmits<{
-  (e: 'vote', index: number): void
+  (e: 'vote'): void
 }>()
 
-const isSelected = computed(() => props.selectedOptionIndex === props.index)
+const handleVote = () => {
+  emit('vote')
+}
 
 const displayedPercentage = ref(0)
 
@@ -78,10 +81,6 @@ const animatePercentage = () => {
 
   requestAnimationFrame(updateValue)
 }
-
-const handleVote = () => {
-  emit('vote', props.index)
-}
 </script>
 
 <style scoped>
@@ -98,7 +97,6 @@ const handleVote = () => {
 
 .option:hover:not(.voted) {
   background: var(--color-surface-hover);
-  /* transform: translateY(-2px); */
   border-color: var(--border-color);
 }
 
@@ -108,7 +106,7 @@ const handleVote = () => {
 
 .option.active {
   border-color: var(--color-accent);
-  background: rgba(0, 210, 60, 0.1);
+  background: rgba(0, 210, 60, 0.05);
 }
 
 .option-content {
@@ -132,6 +130,7 @@ const handleVote = () => {
 }
 
 .active .option-text {
+  color: var(--color-accent);
   transform: translateX(8px);
 }
 
@@ -156,7 +155,8 @@ const handleVote = () => {
 }
 
 .result-bar-selected {
-  background: rgba(0, 210, 60, 0.5);
+  background: var(--color-accent);
+  opacity: 0.5;
 }
 
 .percentage {

@@ -8,7 +8,7 @@
         :key="option.text"
         :option="option"
         :has-voted="results.hasVoted"
-        :is-selected="results.selectedOptionIndex === index"
+        :isSelected="results.selectedOptionIndex === index"
         @vote="() => vote(index)"
       />
     </div>
